@@ -32,7 +32,7 @@ class restaurant extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 400,
+              height: 350,
             ),
             InkWell(
               onTap: () {

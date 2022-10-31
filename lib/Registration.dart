@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:restaurant/Homepage.dart';
 
 class Registration extends StatefulWidget {
   const Registration({Key? key}) : super(key: key);
@@ -143,7 +144,11 @@ class _RegistrationState extends State<Registration> {
                   ),
                   InkWell(
                     onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                          return Homepage();
+                      },));
                       if(valid.currentState!.validate()){  print('Clicked');}
+
 
                     },
                     child: Container(

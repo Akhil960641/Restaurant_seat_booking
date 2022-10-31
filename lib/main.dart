@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/Homepage.dart';
-import 'package:restaurant/restaurant.dart';
-import 'package:restaurant/Hotelmanagers.dart';
 import 'package:restaurant/Registration.dart';
+import 'package:restaurant/Resuble_widget/Seat.dart';
+import 'package:restaurant/Resuble_widget/six_seat.dart';
+import 'package:restaurant/Resuble_widget/table_4seat.dart';
+import 'package:restaurant/Resuble_widget/table_sixseat.dart';
+import 'package:restaurant/restaurant.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,7 +23,7 @@ class MyApp extends StatelessWidget {
 
         primarySwatch: Colors.blue,
       ),
-      home:Homepage(),
+      home:restaurant()
     );
   }
 }
