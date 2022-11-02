@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Sixseat extends StatefulWidget {
-   Sixseat({Key? key}) : super(key: key);
+   Sixseat({Key? key,required this.isHomePage}) : super(key: key);
+   bool isHomePage;
 
   @override
   State<Sixseat> createState() => _SixseatState();
@@ -14,7 +15,7 @@ class _SixseatState extends State<Sixseat> {
     return
 
       InkWell(
-        onTap: () => setState(() => flag = !flag),
+        onTap: () => widget.isHomePage?null:setState(() => flag = !flag),
         child: Container(
             width: 90,
             height: 10,

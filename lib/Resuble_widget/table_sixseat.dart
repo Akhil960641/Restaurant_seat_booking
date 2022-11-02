@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant/Resuble_widget/six_seat.dart';
 
-class TableSixSeat extends StatelessWidget {
-  const TableSixSeat({Key? key}) : super(key: key);
+class TableSixSeat extends StatefulWidget {
+   TableSixSeat({Key? key,required this.sn}) : super(key: key);
+String sn;
 
+  @override
+  State<TableSixSeat> createState() => _TableSixSeatState();
+}
+
+class _TableSixSeatState extends State<TableSixSeat> {
   @override
   Widget build(BuildContext context) {
     return
@@ -24,7 +30,9 @@ class TableSixSeat extends StatelessWidget {
                 Sixseat(), SizedBox(
                   width: 10,
                 ),
-                Sixseat(),
+                Sixseat(
+
+                ),
               ],
             ),
             SizedBox(
@@ -46,6 +54,7 @@ class TableSixSeat extends StatelessWidget {
                         spreadRadius: 1,
                       ),
                     ]),
+                child: Center(child: Text(widget. sn,style: TextStyle(fontSize: 18))),
               ),
             ),
             SizedBox(

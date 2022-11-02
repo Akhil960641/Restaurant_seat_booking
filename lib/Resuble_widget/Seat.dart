@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class Seat extends StatefulWidget {
-   Seat({Key? key}) : super(key: key);
-
+   Seat({Key? key,required this.isHallpage}) : super(key: key);
+bool isHallpage;
   @override
   State<Seat> createState() => _SeatState();
 }
@@ -14,7 +14,7 @@ class _SeatState extends State<Seat> {
   Widget build(BuildContext context) {
     return
       InkWell(
-        onTap: () => setState(() => flag = !flag),
+        onTap:widget.isHallpage?null: () => setState(() => flag = !flag),
         child: Container(
             width: 10,
             height: 50,
