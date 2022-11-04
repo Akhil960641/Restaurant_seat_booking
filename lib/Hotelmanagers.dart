@@ -18,11 +18,12 @@ class _HotelmanState extends State<Hotelman> {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     if (flag == true) {
       return Scaffold(
         body: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height:size.height,
+          width: size.width,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('asset/aak.jpg'), fit: BoxFit.cover),
@@ -33,7 +34,7 @@ class _HotelmanState extends State<Hotelman> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 60,
+                    height: size.height*.08,
                   ),
 
                   Row(
@@ -48,13 +49,13 @@ class _HotelmanState extends State<Hotelman> {
                     ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: size.height*.07,
                   ),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 340,
+                        width: size.width * .88,
                         child: TextFormField(
                           style: TextStyle(
                             color: Colors.white
@@ -77,12 +78,12 @@ class _HotelmanState extends State<Hotelman> {
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height*.01,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      width: 340,
+                        width: size.width * .88,
                       child: TextFormField(
                         validator: (value){
                           if(value!.isEmpty){
@@ -111,13 +112,13 @@ class _HotelmanState extends State<Hotelman> {
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height*.01,
                   ),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 340,
+                          width: size.width * .88,
                         child: TextFormField(
                           validator: (value){
                             if(value!.isEmpty){
@@ -146,7 +147,7 @@ class _HotelmanState extends State<Hotelman> {
 
                   ),
                   SizedBox(
-                    height: 29,
+                    height: size.height*.05,
                   ),
                   InkWell(
                     onTap: () {
@@ -154,8 +155,8 @@ class _HotelmanState extends State<Hotelman> {
 
                     },
                     child: Container(
-                      width: 150,
-                      height: 40,
+                        width: size.width * .3,
+                        height: size.height * .06,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
@@ -170,16 +171,14 @@ class _HotelmanState extends State<Hotelman> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: size.height*.03,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Row(
 
                       children: [
-                        SizedBox(
-                          width: 40,
-                        ),
+
                         Text('Dont have account', style: TextStyle(fontSize: 17),),
                         TextButton(onPressed: () {
                           setState(() {
@@ -200,8 +199,8 @@ class _HotelmanState extends State<Hotelman> {
     }
     else {
       return Container(
-        height: double.infinity,
-        width: double.infinity,
+        height: size.height,
+        width: size.width,
         decoration: const BoxDecoration(
           image: DecorationImage(
               image: AssetImage('asset/aak.jpg'), fit: BoxFit.cover),
@@ -214,7 +213,7 @@ class _HotelmanState extends State<Hotelman> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 60,
+                    height: size.height*.08,
                   ),
 
                   Row(
@@ -230,12 +229,12 @@ class _HotelmanState extends State<Hotelman> {
                   ),
 
                   SizedBox(
-                    height: 1,
+                    height: size.height*.08,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      width: 340,
+                        width: size.width * .88,
                       child: TextFormField(
                         validator: (value){
                           if(value!.isEmpty){
@@ -266,13 +265,13 @@ class _HotelmanState extends State<Hotelman> {
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height*.01,
                   ),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 340,
+                          width: size.width * .88,
                         child: TextFormField(
                           validator: (value){
                             if(value!.isEmpty){
@@ -299,7 +298,7 @@ class _HotelmanState extends State<Hotelman> {
 
                   ),
                   SizedBox(
-                    height: 29,
+                    height: size.height*.06,
                   ),
                   InkWell(
                     onTap: () {
@@ -307,8 +306,8 @@ class _HotelmanState extends State<Hotelman> {
 
                     },
                     child: Container(
-                      width: 150,
-                      height: 40,
+                      width: size.width*.3,
+                      height: size.width*.13,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
@@ -323,16 +322,14 @@ class _HotelmanState extends State<Hotelman> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: size.height*.01,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(28.0),
                     child: Row(
 
                       children: [
-                        SizedBox(
-                          width: 40,
-                        ),
+
                         Text('Already Account', style: TextStyle(fontSize: 17),),
                         TextButton(onPressed: () {
                           setState(() {

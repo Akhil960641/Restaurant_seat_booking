@@ -15,6 +15,7 @@ bool isFromHall;
 class _FourSeatState extends State<FourSeat> {
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -22,24 +23,29 @@ class _FourSeatState extends State<FourSeat> {
           children: [
             Column(
               children: [
-                SizedBox(width:20 ,),
+                // SizedBox(width: size.width * .01,
+                //   ),
 
                 Seat(isHallpage: widget.isFromHall,
 
                 ),
-                SizedBox( height: 5),
+                SizedBox(  height: size.height * .007),
 
                 Seat(isHallpage: widget.isFromHall,
 
                 )
               ],
             ),
+            SizedBox(
+                width: size.width * .01
+
+            ),
 
 
             Container(
               // color: Colors.cyanAccent,
-               height: 100,
-              width: 80,
+              width: size.width * .22,
+              height: size.height * .13,
               decoration: BoxDecoration(
                   color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -57,10 +63,10 @@ class _FourSeatState extends State<FourSeat> {
              ),
             Column(
               children: [
-                SizedBox(width:20 ,),
+                SizedBox( width: size.width * .05),
                 Seat(isHallpage: widget.isFromHall,),
                 SizedBox(
-                  height: 5,
+                   height: size.height * .007,
                 ),
                 Seat(isHallpage: widget.isFromHall,)
               ],

@@ -7,19 +7,22 @@ class restaurant extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Container(
-      height: double.infinity,
-      width: double.infinity,
+      height: size.height,
+
+      width: size.width,
       decoration: const BoxDecoration(
         image: DecorationImage(
             image: AssetImage('asset/akaa.jpg'), fit: BoxFit.cover),
       ),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: Column(
           children: [
             SizedBox(
-              height: 150,
+              height: size.height * .20,
             ),
             Center(
               child: Text(
@@ -32,7 +35,7 @@ class restaurant extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 350,
+                height: size.height * .35,
             ),
             InkWell(
               onTap: () {
@@ -43,9 +46,11 @@ class restaurant extends StatelessWidget {
                 ));
               },
               child: Container(
-                width: 350,
-                height: 60,
-                decoration: BoxDecoration(
+                width: size.width *.85,
+
+                height: size.height * .08,
+
+                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                   color: Colors.white,
                 ),
@@ -59,7 +64,7 @@ class restaurant extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox( height: size.height * .03,),
             InkWell(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -68,8 +73,9 @@ class restaurant extends StatelessWidget {
 
               },
               child: Container(
-                  width: 350,
-                  height: 60,
+                  width: size.width *.85,
+
+                  height: size.height * .08,
 
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),

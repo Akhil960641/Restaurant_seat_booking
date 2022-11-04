@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant/Homepage.dart';
-import 'package:restaurant/Registration.dart';
-import 'package:restaurant/Resuble_widget/Seat.dart';
-import 'package:restaurant/Resuble_widget/six_seat.dart';
-import 'package:restaurant/Resuble_widget/table_4seat.dart';
-import 'package:restaurant/Resuble_widget/table_sixseat.dart';
 import 'package:restaurant/restaurant.dart';
 
 void main() {
@@ -14,24 +8,19 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home:restaurant()
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: restaurant());
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-
 
   final String title;
 
@@ -44,14 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
-
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
@@ -62,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(

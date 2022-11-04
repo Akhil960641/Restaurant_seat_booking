@@ -12,13 +12,14 @@ class _SixseatState extends State<Sixseat> {
   bool flag=true;
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return
 
       InkWell(
         onTap: () => widget.isHomePage?null:setState(() => flag = !flag),
         child: Container(
-            width: 90,
-            height: 10,
+            width: size.width * .23,
+            height: size.height * .017,
             decoration: BoxDecoration(
               color:flag? Colors.white:Colors.yellow,
               borderRadius: BorderRadius.circular(30),

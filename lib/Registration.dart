@@ -12,16 +12,19 @@ class _RegistrationState extends State<Registration> {
   TextEditingController PhoneNumber = TextEditingController();
   TextEditingController Password = TextEditingController();
   TextEditingController UserName = TextEditingController();
-  var valid=GlobalKey<FormState>();
-  bool flag=true;
+  var valid = GlobalKey<FormState>();
+  bool flag = true;
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery
+        .of(context)
+        .size;
     if (flag == true) {
       return Scaffold(
         body: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: size.height,
+          width: size.width,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('asset/register.png'), fit: BoxFit.cover),
@@ -30,13 +33,10 @@ class _RegistrationState extends State<Registration> {
             child: Form(
               key: valid,
               child: Column(
-
                 children: [
-
                   SizedBox(
-                    height: 60,
+                    height: size.height * .06,
                   ),
-
                   Row(
                     children: [
                       Padding(
@@ -49,19 +49,16 @@ class _RegistrationState extends State<Registration> {
                     ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: size.height * .05,
                   ),
                   Center(
-
                     child: Padding(
-
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-
-                        width: 340,
+                        width: size.width * .88,
                         child: TextFormField(
                           validator: (value) {
-                            if(value==null){
+                            if (value == null) {
                               return 'Enter name';
                             }
                           },
@@ -72,88 +69,83 @@ class _RegistrationState extends State<Registration> {
                               labelText: 'UserName',
                               suffixIcon: Icon(Icons.person),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(9)
-                              )
-                          ),
+                                  borderRadius: BorderRadius.circular(9))),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height * .001,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      width: 340,
+                      width: size.width * .88,
                       child: TextFormField(
-
-                        validator: (value){
-                          if(value!.isEmpty){
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return 'no data';
-                          }else if(value.length<10){
+                          } else if (value.length < 10) {
                             return 'too short';
                           }
                         },
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         controller: PhoneNumber,
-
                         decoration: InputDecoration(
                           fillColor: Colors.white,
                           labelText: 'PhoneNumber',
-                            suffixIcon: Icon(Icons.numbers),
+                          suffixIcon: Icon(Icons.numbers),
                           border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)
-                           ),
+                              borderRadius: BorderRadius.circular(10)),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height * .001,
                   ),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 340,
+                        width: size.width * .88,
                         child: TextFormField(
-                          validator: (value){
-                            if(value!.isEmpty){
+                          validator: (value) {
+                            if (value!.isEmpty) {
                               return 'no data';
-                            }else if(value.length<8){
+                            } else if (value.length < 8) {
                               return 'too short';
                             }
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                            controller: Password,
-                            decoration: InputDecoration(
+                          controller: Password,
+                          decoration: InputDecoration(
                               fillColor: Colors.white,
                               labelText: 'Password',
-                                suffixIcon: Icon(Icons.password),
+                              suffixIcon: Icon(Icons.password),
                               border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)
-                            )),
+                                  borderRadius: BorderRadius.circular(10))),
+                        ),
                       ),
                     ),
                   ),
-
-                  ),
                   SizedBox(
-                    height: 29,
+                    height: size.height * .08,
                   ),
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
                           return Homepage();
-                      },));
-                      if(valid.currentState!.validate()){  print('Clicked');}
-
-
+                        },
+                      ));
+                      if (valid.currentState!.validate()) {
+                        print('Clicked');
+                      }
                     },
                     child: Container(
-                      width: 150,
-                      height: 40,
+                      width: size.width * .3,
+                      height: size.height*.05,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
                         color: Colors.white,
@@ -168,26 +160,30 @@ class _RegistrationState extends State<Registration> {
                     ),
                   ),
                   SizedBox(
-                    height: 20,
+                    height: size.height * .01,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(28.0),
                     child: Row(
-
                       children: [
-                        SizedBox(
-                          width: 40,
+                        // SizedBox(
+                        //   height: size.height*.1,
+                        // ),
+                        Text(
+                          'Already account',
+                          style: TextStyle(fontSize: 17),
                         ),
-                        Text('Already account', style: TextStyle(fontSize: 17),),
-                        TextButton(onPressed: () {
-                          setState(() {
-
-                            flag=false;
-                          });
-
-                        }, child: Text(
-                          'Sign in...', style: TextStyle(fontSize: 17),
-                        ))
+                        TextButton(
+                            onPressed: () {
+                              setState(() {
+                                flag = false;
+                              });
+                            },
+                            child: Text(
+                              'Sign in...',
+                              style: TextStyle(
+                                  fontSize: 17, color: Colors.white),
+                            ))
                       ],
                     ),
                   ),
@@ -197,12 +193,11 @@ class _RegistrationState extends State<Registration> {
           ),
         ),
       );
-    }
-    else {
-      return  Scaffold(
+    } else {
+      return Scaffold(
         body: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: size.height,
+          width: size.width,
           decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage('asset/login.png'), fit: BoxFit.cover),
@@ -213,9 +208,8 @@ class _RegistrationState extends State<Registration> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 60,
+                    height: size.height * .1,
                   ),
-
                   Row(
                     children: [
                       Padding(
@@ -228,113 +222,109 @@ class _RegistrationState extends State<Registration> {
                     ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: size.height * .09,
                   ),
-
                   Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      width: 340,
+                        width: size.width * .88,
                       child: TextFormField(
-                        validator: (value){
-                          if(value!.isEmpty){
+                        validator: (value) {
+                          if (value!.isEmpty) {
                             return 'no data';
-                          }else if(value.length<10){
+                          } else if (value.length < 10) {
                             return 'too short';
                           }
                         },
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         controller: PhoneNumber,
                         decoration: InputDecoration(
-                          fillColor: Colors.white,
-                          labelText: 'PhoneNumber',
+                            fillColor: Colors.white,
+                            labelText: 'PhoneNumber',
                             suffixIcon: Icon(Icons.numbers),
-                          filled: true,
-
-                          border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10)
-                          )
-                        ),
+                            filled: true,
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(10))),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 1,
+                    height: size.height * .001,
                   ),
                   Center(
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
-                        width: 340,
+                          width: size.width * .88,
                         child: TextFormField(
-                          validator: (value){
-                            if(value!.isEmpty){
+                          validator: (value) {
+                            if (value!.isEmpty) {
                               return 'no data';
-                            }else if(value.length<8){
+                            } else if (value.length < 8) {
                               return 'too short';
                             }
                           },
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                            controller: Password,
-                            decoration: InputDecoration(
+                          controller: Password,
+                          decoration: InputDecoration(
                               fillColor: Colors.white,
                               labelText: 'Password',
-                                suffixIcon: Icon(Icons.password),
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10)
-                            )),
+                              suffixIcon: Icon(Icons.password),
+                              border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10))),
+                        ),
                       ),
                     ),
                   ),
-
-                  ),
                   SizedBox(
-                    height: 29,
+                    height: size.height * .05,
                   ),
                   InkWell(
                     onTap: () {
-                      if(valid.currentState!.validate()){  print('Clicked');}
-
+                      if (valid.currentState!.validate()) {
+                        print('Clicked');
+                      }
                     },
                     child: Container(
-                      width: 150,
-                      height: 40,
+                      width: size.width * .3,
+                      height: size.height*.05,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        color: Colors.black
-
-
-                      ),
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.black),
 
                       // color: Colors.lightBlueAccent,
                       child: Center(
                         child: Text(
                           'Sign in',
-                          style: TextStyle(fontSize: 19,color: Colors.white),
+                          style: TextStyle(fontSize: 19, color: Colors.white),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 60,
+                    height: size.height * .03,
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(38.0),
                     child: Row(
-
                       children: [
-                        SizedBox(
-                          width: 40,
+                        // SizedBox(
+                        //   height: size.height*.001,
+                        // ),
+                        Text(
+                          'Dont have account',
+                          style: TextStyle(fontSize: 17),
                         ),
-                        Text('Dont have account', style: TextStyle(fontSize: 17),),
-                        TextButton(onPressed: () {
-                          setState(() {
-                            flag=true;
-                          });
-
-                        }, child: Text(
-                          'Sing in...', style: TextStyle(fontSize: 17),
-                        ))
+                        TextButton(
+                            onPressed: () {
+                              setState(() {
+                                flag = true;
+                              });
+                            },
+                            child: Text(
+                              'Sing in...',
+                              style: TextStyle(fontSize: 17),
+                            ))
                       ],
                     ),
                   ),
@@ -345,6 +335,5 @@ class _RegistrationState extends State<Registration> {
         ),
       );
     }
-    }
   }
-
+}

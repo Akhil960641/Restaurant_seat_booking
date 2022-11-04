@@ -12,12 +12,13 @@ class _SeatState extends State<Seat> {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return
       InkWell(
         onTap:widget.isHallpage?null: () => setState(() => flag = !flag),
         child: Container(
-            width: 10,
-            height: 50,
+            width: size.width * .029,
+            height: size.height * .06,
             decoration: BoxDecoration(
              color:flag? Colors.white:Colors.yellow,
               borderRadius: BorderRadius.circular(30),

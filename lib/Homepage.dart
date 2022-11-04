@@ -15,13 +15,14 @@ class Homepage extends StatefulWidget {
 class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: Column(
         children: [
-          SizedBox(height: 15,),
+          SizedBox( height: size.height * .001,),
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Row(
@@ -30,12 +31,12 @@ class _HomepageState extends State<Homepage> {
                   onTap: () {
 
                   },
-                  child: Text('LOATION',style: TextStyle(fontSize: 20),),
+                  child: Text('LOATION',style: TextStyle(fontSize: 20,),),
                 ),
               ],
             ),
           ),
-          SizedBox(height: 5,),
+          // SizedBox( height: size.height * .0001),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
@@ -53,7 +54,7 @@ class _HomepageState extends State<Homepage> {
                     OutlineInputBorder(borderSide: BorderSide.none),
                     prefixIcon: Icon(
                       Icons.search,
-                      size: 35,
+                      size: 30,
                       color: Colors.black54,
                     ),
                     hintText: 'hotel name'),
@@ -77,39 +78,42 @@ class _HomepageState extends State<Homepage> {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: size.height * .009,
           ),
-          Text('Top picks'),
+          Text('Top picks',style: TextStyle(decoration: TextDecoration.overline)),
           SizedBox(
-            height: 10,
+            height: size.height * .03,
           ),
           Expanded(
-            child: ListView.builder(itemBuilder: (context, index) {
-              fn();
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 2),
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) {
-                      print('>>>>>>>${hName[index]['name']}');
-                      return SeatBooking(
-                          hotelName: hName[index]['name'],
-                          location: hName[index]['loc'],
-                          rating: hName[index]['rating'],
-                          foods: hName[index]['food'],
-                          hotelimage: hName[index]['img']);
+            child: Container(
+              width: size.width,
+              child: ListView.builder(itemBuilder: (context, index) {
+                fn();
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 2),
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) {
+                        print('>>>>>>>${hName[index]['name']}');
+                        return SeatBooking(
+                            hotelName: hName[index]['name'],
+                            location: hName[index]['loc'],
+                            rating: hName[index]['rating'],
+                            foods: hName[index]['food'],
+                            hotelimage: hName[index]['img']);
 
-                    },));
-                  },
-                  child: RestorentList(hotelName: hName[index]['name'],
-                      location: hName[index]['loc'],
-                      rating: hName[index]['rating'],
-                      foods: hName[index]['food'],
-                      hotelimage: hName[index]['img']),
-                ),
-              );
-            },
-             itemCount: Constants.res!.length),
+                      },));
+                    },
+                    child: RestorentList(hotelName: hName[index]['name'],
+                        location: hName[index]['loc'],
+                        rating: hName[index]['rating'],
+                        foods: hName[index]['food'],
+                        hotelimage: hName[index]['img']),
+                  ),
+                );
+              },
+               itemCount: Constants.res!.length),
+            ),
           )
         ],
 

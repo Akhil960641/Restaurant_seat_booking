@@ -15,20 +15,23 @@ class RestorentList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size=MediaQuery.of(context).size;
     return Container(
-      width: 100,
-      height: 200,
+      width: size.width,
+      // height: 200,
       decoration: BoxDecoration(
           gradient: LinearGradient(
               colors: [Colors.blueGrey.shade900, Colors.indigo.shade400]),
           ),
       child: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(hotelimage,fit: BoxFit.fill,width: 200,)),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image.asset(hotelimage,fit: BoxFit.fill,)),
+            ),
           ),
           Expanded(
             child: Column(
@@ -82,7 +85,7 @@ class RestorentList extends StatelessWidget {
                       Text(
                         '$location, Kerala',
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 16,
                           color: Colors.white,
                         ),
                       ),
